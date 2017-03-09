@@ -1,0 +1,52 @@
+<center><h1><font color="grey">WELCOME</font></h1></center>
+<center><h1><font color="lightgrey">Article</font></h1></center>
+
+<br><br><br>
+
+<p>
+  <center><strong><font color="grey">TITLE:</font></strong></center>
+  <br>
+  <center><font color="lightgrey"><%= @article.title %></font></center>
+</p>
+<p>
+  <center><strong><font color="grey">TEXT:</font></strong></center>
+  <br>
+  <center><font color="lightgrey"><%= @article.text %></font></center>
+</p>
+
+<br><br>
+
+<center><font color="grey"><h2>COMMENTS</h2></font></center>
+<% @article.comments.each do |comment| %>
+  <p>
+    <center><font color="lightgrey"><strong>COMMENTER</strong></font></center>
+    <center><font color="lightblue"><%= comment.commenter %></font></center>
+  </p>
+ 
+  <p>
+   <center><font color="lightgrey"><strong>COMMENT</strong></font></center>
+   <center><font color="lightblue"><%= comment.body %></font></center>
+  </p>
+<% end %>
+
+<br><br>
+
+<center><font color="grey"><h2>ANY COMMENT?</h2></font></center>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <center><font color="grey"><%= f.label :commenter %><br></font></center>
+    <center><%= f.text_field :commenter %></center>
+  </p>
+  <p>
+   <center><font color="grey"><%= f.label :body %><br></font></center>
+   <center><%= f.text_area :body %></center>
+  </p>
+  <p>
+    <center><%= f.submit %></center>
+  </p>
+<% end %>
+
+<br><br><br>
+
+<center><%= link_to 'edit', edit_article_path(@article), style: "color: lightblue;" %> -
+<%= link_to 'back', articles_path, style: "color: lightblue;" %></center>

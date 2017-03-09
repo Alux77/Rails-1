@@ -1,0 +1,60 @@
+<center><h1><font color="grey">ARTICLES</font></h1></center>
+<center><h3><font color="lightgrey">alux miniblog [ruby on rails]</font></h3></center>
+
+<br><br><br>
+ 
+<center><table>
+  <tr>
+    <th><font color="grey">TITLE</font></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    <th><font color="grey">TEXT</font></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+  </tr>
+
+  <tr></tr>
+  <tr></tr>
+  <tr></tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><center><font color="lightgrey"><%= article.title %></font></center></td>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      <td><center><font color="lightgrey"><%= article.text %></font></center></td>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      <td><center><%= link_to 'show', article_path(article), style: "color: lightblue;" %></center></td>
+
+      <td><center><%= link_to 'new', new_article_path, style: "color: lightblue;" %></center></td>
+
+      <td><center><%= link_to 'edit', edit_article_path(article), style: "color: lightblue;" %></center></td>
+
+      <td><center><%= link_to 'destroy', article_path(article), style: "color: lightblue;",
+              method: :delete,
+              data: { confirm: 'SURE, SURE, SURE WEY!??' } %></center></td>
+    </tr>
+  <% end %>
+
+</table></center>
+
+  <br><br><br>
+
+  <td><center><%= link_to 'home', root_path, style: "color: lightblue;" %></center></td>

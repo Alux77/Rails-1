@@ -1,0 +1,39 @@
+<center><h1><font color="grey">Editing article</font></h1></center>
+ 
+<%= form_for :article, url: article_path(@article), method: :patch do |f| %>
+
+<br><br>
+ 
+  <p>
+    <center><%= f.label :title %><br></center>
+    <center><%= f.text_field :title %></center>
+  </p>
+ 
+  <p>
+    <center><%= f.label :text %><br></center>
+    <center><%= f.text_area :text %></center>
+  </p>
+ 
+  <p>
+    <center><%= f.submit %></center>
+  </p>
+ 
+<% end %>
+
+<br>
+
+<% if @article.errors.any? %>
+    <center><font color="red"><div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "MISTAKES") %>
+        LOOOSER
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+        <% end %>
+      </ul>
+    </div></font></center>
+  <% end %>
+ 
+<center><%= link_to 'back', articles_path, style: "color: lightblue;" %></center>
